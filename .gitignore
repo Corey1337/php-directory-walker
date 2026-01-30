@@ -1,0 +1,6 @@
+/vendor
+
+/.idea
+/.phpstorm.meta.php
+
+.php-cs-fixer.cache

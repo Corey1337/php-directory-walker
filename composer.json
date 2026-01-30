@@ -1,0 +1,30 @@
+{
+    "name": "corey/php-directory-crawler",
+    "description": "Finding the sum of all numbers in a file",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Corey1337",
+            "email": "kolikendr@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.5,<8.6"
+    },
+    "require-dev": {
+        "vkcom/noverify": "^0.5.5",
+        "friendsofphp/php-cs-fixer": "^3.93",
+        "phpunit/phpunit": "^12.5",
+        "mikey179/vfsstream": "^1.6"
+    }
+}
