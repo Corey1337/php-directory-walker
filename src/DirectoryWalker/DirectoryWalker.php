@@ -6,7 +6,7 @@ namespace App\DirectoryWalker;
 
 use App\DirectoryWalker\Exceptions\DirectoryWalkerDirectoryNotFoundException;
 
-final class DirectoryWalker implements IDirectoryWalker
+final class DirectoryWalker implements DirectoryWalkerInterface
 {
     private string $startPath;
     private string $targetFilename;

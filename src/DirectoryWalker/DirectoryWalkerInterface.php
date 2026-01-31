@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\DirectoryWalker;
 
-interface IDirectoryWalker
+interface DirectoryWalkerInterface
 {
     public function findTargetFiles(): iterable;
 }

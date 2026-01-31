@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\FileContentReader;
 
-final class FileContentReader implements IFileContentReader
+final class FileContentReader implements FileContentReaderInterface
 {
     public function readNumbersSumFromFile(string $absoluteFilePath): int
     {

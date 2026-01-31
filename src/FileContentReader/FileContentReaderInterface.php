@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\FileContentReader;
 
-interface IFileContentReader
+interface FileContentReaderInterface
 {
     public function readNumbersSumFromFile(string $absoluteFilePath);
 }
