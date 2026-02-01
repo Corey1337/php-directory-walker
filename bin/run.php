@@ -13,7 +13,7 @@ $path = $argv[1] ?? '';
 
 try {
     $absolutePath = realpath($path);
-    if ($absolutePath === false) {
+    if (false === $absolutePath) {
         throw new RuntimeException('Unable to locate absolute path');
     }
 
