@@ -6,31 +6,22 @@ namespace App\DirectoryWalker;
 
 use App\DirectoryWalker\Exceptions\DirectoryWalkerDirectoryNotFoundException;
 
-final class DirectoryWalker implements DirectoryWalkerInterface
+final class StackDirectoryWalker implements DirectoryWalkerInterface
 {
-    private string $startPath;
-    private string $targetFilename;
-
-    /** @throws DirectoryWalkerDirectoryNotFoundException */
-    public function __construct(string $absoluteStartDirectoryPath, string $targetFilename)
+    /**
+     * Scan directory and all subdirectories to find the all target files.
+     *
+     * @return \Generator<string> Absolute paths to files
+     *
+     * @throws DirectoryWalkerDirectoryNotFoundException
+     */
+    public function findTargetFiles(string $absoluteStartDirectoryPath, string $targetFilename): iterable
     {
         if (!is_dir($absoluteStartDirectoryPath)) {
             throw new DirectoryWalkerDirectoryNotFoundException("Failed to resolve path to directory: {$absoluteStartDirectoryPath}");
         }
 
-        $this->startPath = $absoluteStartDirectoryPath;
-
-        $this->targetFilename = $targetFilename;
-    }
-
-    /**
-     * Scan directory and all subdirectories to find the all target files.
-     *
-     * @return \Generator<string> Absolute paths to files
-     */
-    public function findTargetFiles(): iterable
-    {
-        $directoriesStack = [$this->startPath];
+        $directoriesStack = [$absoluteStartDirectoryPath];
 
         while (!empty($directoriesStack)) {
             // Get directory from the stack
@@ -67,7 +58,7 @@ final class DirectoryWalker implements DirectoryWalkerInterface
                 // Return path to target element
                 if (
                     is_file($absoluteDirectoryElementPath)
-                    && $directoryElement === $this->targetFilename
+                    && $directoryElement === $targetFilename
                 ) {
                     yield $absoluteDirectoryElementPath;
                 }

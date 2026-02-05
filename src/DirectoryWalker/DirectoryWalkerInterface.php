@@ -6,5 +6,5 @@ namespace App\DirectoryWalker;
 
 interface DirectoryWalkerInterface
 {
-    public function findTargetFiles(): iterable;
+    public function findTargetFiles(string $absoluteStartDirectoryPath, string $targetFilename): iterable;
 }

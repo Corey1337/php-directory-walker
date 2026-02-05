@@ -43,9 +43,9 @@ class FileContentReaderTest extends TestCase
     {
         yield 'simple test' => ['10', 10];
 
-        yield 'text after numbers' => ['10abc 13 abcabc', 10];
+        yield 'text after numbers' => ['10abc 13 abcabc', 1013];
 
-        yield 'numbers after text' => ['true abc10 12', 0];
+        yield 'numbers after text' => ['true abc10 12', 1012];
 
         yield 'starting from zero' => ['010', 10];
 
@@ -62,7 +62,7 @@ class FileContentReaderTest extends TestCase
               true   1
                false  44
              sad  5',
-            3,
+            53,
         ];
     }
 }

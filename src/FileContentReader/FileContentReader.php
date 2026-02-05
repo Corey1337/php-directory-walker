@@ -22,7 +22,7 @@ final class FileContentReader implements FileContentReaderInterface
         while (false === feof($fileHandle)) {
             $line = fgets($fileHandle);
             if (false !== $line) {
-                $number += intval(str_replace(' ', '', $line));
+                $number += intval(preg_replace('/[^0-9]/', '', $line));
             }
         }
 

@@ -12,6 +12,7 @@ return (new Config())
     ->setRules([
         '@auto' => true,
         '@PhpCsFixer' => true,
+        'php_unit_test_class_requires_covers' => false,
     ])
     ->setFinder(
         (new Finder())
